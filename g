@@ -18,3 +18,6 @@ Get-NetConnectionProfile | Set-NetConnectionProfile -NetworkCategory Private
 Start-Service termservice
 
 Get-NetTCPConnection -LocalPort 3389
+
+(Get-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server").fDenyTSConnections
+Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name fDenyTSConnections -Value 0
