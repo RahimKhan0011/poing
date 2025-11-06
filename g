@@ -25,3 +25,7 @@ Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" 
 
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 Restart-Service termservice
+
+Get-NetFirewallRule -DisplayGroup "Remote Desktop" | Select-Object Name, Enabled, Profile
+
+systeminfo | findstr /B /C:"OS Name"
